@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="signup-container">
+        <div class="centered-form" style="background: rgba(200, 200, 200, 0.85);">
+            <div class="form-header">
+                Sign up
+            </div>
+            <hr>
+            <div class="form-content">
+                <form action="" method="post">
+                    {% from "_formhelpers.html" import render_field %}
+                    <p>
+                        {{ render_field(form.nickname) }}
+                    </p>
+                    <p>
+                        {{ render_field(form.email) }}
+                    </p>
+                    <p>
+                        {{ render_field(form.password) }}
+                    </p>
+                    <p>
+                        {{ render_field(form.confirm) }}
+                    </p>
+                    <p class="info">
+                        Required fields are marked by <span class="required">*</span> symbol.
+                    </p>
+                    <p>
+                        <a href="{{ url_for('login') }}">Already have an account?</a>
+                    </p>
+                    <p>
+                        <button style="width: 350px;" class="btn btn-lg btn-danger">Sign up</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

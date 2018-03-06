@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="signup-container">
+        <div class="centered-form" style="height: 380px; background: rgba(200, 200, 200, 0.85);">
+            <div class="form-header">
+                Login
+            </div>
+            <hr>
+            <div class="form-content login-content">
+                <form action="" method="post">
+                    {% from "_formhelpers.html" import render_field %}
+                    <p>
+                        {{ render_field(form.email) }}
+                    </p>
+                    <p>
+                        {{ render_field(form.password) }}
+                    </p>
+                    <p>
+                        <a href="{{ url_for('signup') }}">Don't have an account?</a>
+                    </p>
+                    <p>
+                        <button style="width: 350px;" class="btn btn-lg btn-danger">Login</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

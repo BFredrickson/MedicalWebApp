@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="main-workspace">
+        <div class="navbar-home">
+            <div>
+                <h3><b>Your profile</b></h3>
+            </div>
+            <div>
+                <h3>Hello, {{ current_user.nickname }} [<a href="{{ url_for('logout') }}">Log out</a> ]</h3>
+            </div>
+        </div>
+        <div class="content">
+            <div class="left-typed-content">
+                <div class="user-data-container">
+                    <form method="post">
+                        {% from "_formhelpers.html" import render_field %}
+                        {{ render_field(form.phone) }}
+                        <hr>
+                        {{ render_field(form.about_me) }}
+                        <hr>
+                        {{ render_field(form.last_appointment) }}
+                        <hr>
+                        {{ render_field(form.weight) }}
+                        <hr>
+                        {{ render_field(form.height) }}
+                        <hr>
+                        {{ render_field(form.medical_history) }}
+                        <h3 style="text-align: center"><button style="width: 100%" class="btn btn-danger btn-lg" type="submit">Submit</button></h3>
+                    </form>
+                </div>
+            </div>
+            <div class="right-typed-content">
+                <div class="right-typed-content-inside">
+                    <h2><b>Your Appointment Shedule</b></h2>
+                    <hr>
+                    {% if alert_dentist %}
+                        <div class="alert alert-danger alert-dismissable">
+                            <h4><b>You need to visit a dentist</b></h4>
+                            <p>It seems to be more than 6 month left from your last dentist visit.</p>
+                        </div>
+                        <hr>
+                    {% endif %}
+                    {% if alert_physical %}
+                        <div class="alert alert-danger alert-dismissable">
+                            <h4><b>Physical</b></h4>
+                            <p>It seems to be more than 6 month left from your last physical.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
