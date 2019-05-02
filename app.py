@@ -21,8 +21,8 @@ app.config['ADMINS'] = ['xxx@gmail.com']
 db = SQLAlchemy(app)
 mail = Mail(app)
 
-auth_token = 'f40593a2a5abeb0baa18e7d7b3c07549'
-account_sid = 'AC8cc3bf3b3caf46c887ac6c88db5dd409'
+auth_token = ''
+account_sid = ''
 client = Client(account_sid, auth_token)
 
 login_manager = LoginManager()
